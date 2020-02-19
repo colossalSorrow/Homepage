@@ -1,0 +1,150 @@
+body, html {
+    height: inherit;
+    width: inherit;
+    font-size: 14px;
+    margin-top: .5em; 
+    color: #ecebea;
+    background: #8499B1;
+	color: #333;
+	font-family: 'Oswald', Arial, sans-serif;
+}
+
+.main{
+    position:relative;
+    width:1170px;
+    margin: 0 auto;
+}
+
+/*### CASUALLY ###*/
+
+.view {
+    width: 350px;
+    height: 275px;
+    margin: 10px;
+    float: left;
+    border: 10px solid #fff;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    box-shadow: 1px 1px 2px #e6e6e6;
+    background: #fff;
+}
+
+.view .mask {
+    width: 350px;
+    height: 275px;
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background-color: #eff2f5;
+    transition: all 0.5s linear;
+    opacity: 0;
+}
+
+.view img {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform: scaleY(1);
+    transition: all 0.7s ease-in-out;
+}
+
+.view h2 {
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+    position: relative;
+    font-size: 17px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px 0 0 0;
+    
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    background: transparent;
+    margin: 20px 40px 0px 40px;
+    transform: scale(0);
+    color: #333;
+    transition: all 0.5s linear;
+    filter: alpha(opacity=0);
+    opacity: 0;
+}
+
+.view p {
+    font-family: Georgia, serif;
+    font-size: 15px;
+    position: relative;
+    color: #fff;
+    padding: 10px 20px 20px;
+    text-align: center;
+    
+    color: #333;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.5s linear;
+}
+
+/*### WHEN HOVERED ###*/
+
+.view:hover img {
+/*
+    height: 100%;
+    width: 100%;
+    transform: scale(10);
+*/
+    opacity: 0;
+}
+
+.view:hover .mask {
+    opacity: 1;
+    overflow: auto;
+    scrollbar-width: thin;
+}
+  
+.view:hover h2,.view:hover p{
+    transform: scale(1);
+    opacity: 1;
+}
+	
+/*### MOVING TEXT*/
+
+#textWrapper {
+    height: 50px; 
+    width: 100vw; 
+    position: absolute; 
+    bottom: 0;
+    display: block;
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#text {
+    white-space: nowrap; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%);
+    
+}
+
+.moveIn {
+    animation-name: moveIn;
+    animation-duration: 1s;
+}
+
+.moveOut {
+    animation-name: moveOut;
+    animation-duration: 1s;
+}
+
+@keyframes moveIn {
+    from{ opacity: 0; left: -100%; };
+    to { opacity: 1; left: 50%; };
+}
+
+@keyframes moveOut {
+    from { opacity: 1; left: 50%; }
+    to { opacity: 0; left: 100%; }
+}
