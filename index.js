@@ -18,7 +18,7 @@ function changeText(event) {
         document.getElementById('text').className = '';
         setTimeout(() => {
             document.getElementById('text').className = 'moveOut';
-        }, 2000);
+        }, 5000);
     } else {
         i++;
         if (i >= things.length) i = 0;
